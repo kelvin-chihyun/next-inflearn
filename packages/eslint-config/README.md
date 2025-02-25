@@ -1,3 +1,3 @@
-# `@workspace/eslint-config`
+# `@next-inflearn/eslint-config`
 
 Shared eslint configuration for the workspace.

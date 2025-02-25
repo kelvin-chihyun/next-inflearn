@@ -1,3 +1,3 @@
-# `@workspace/typescript-config`
+# `@next-inflearn/typescript-config`
 
 Shared typescript configuration for the workspace.
