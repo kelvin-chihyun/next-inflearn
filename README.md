@@ -11,10 +11,10 @@ This is a monorepo project containing multiple independent services built with T
 │   ├── todo/        # Todo 애플리케이션 (포트: 3000)
 │   ├── netflix/     # Netflix 클론 (포트: 3001)
 │   ├── dropbox/     # Dropbox 클론 (포트: 3002)
-│   ├── instagram/   # Instagram 클론 (포트: 3003)
-│   └── root/        # 루트 애플리케이션
+│   └── instagram/   # Instagram 클론 (포트: 3003)
 ├── packages/
-│   └── ui/          # 공유 UI 컴포넌트
+│   ├── ui/          # 공유 UI 컴포넌트
+│   └── supabase/     # Supabase 관련
 ├── package.json
 └── turbo.json
 ```
