@@ -37,8 +37,6 @@ This is a monorepo project containing multiple independent services built with T
 - **패키지 매니저**: pnpm
 - **빌드 시스템**: Turborepo
 
----
-
 ## 📦 설치 방법
 
 1. 의존성 설치:
