@@ -2,11 +2,16 @@
   "name": "next-inflearn",
   "version": "0.0.1",
   "private": true,
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
   "scripts": {
     "build": "turbo build",
     "dev": "turbo dev",
     "lint": "turbo lint",
-    "format": "prettier --write \"**/*.{ts,tsx,md}\""
+    "format": "prettier --write \"**/*.{ts,tsx,md}\"",
+    "generate-types": "pnpm --filter @workspace/supabase generate-types"
   },
   "devDependencies": {
     "@next-inflearn/eslint-config": "workspace:*",
