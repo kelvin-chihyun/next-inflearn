@@ -4,7 +4,9 @@
     "baseUrl": ".",
     "paths": {
       "@/*": ["./*"],
-      "@next-inflearn/ui/*": ["../../packages/ui/src/*"]
+      "@next-inflearn/ui": ["../../packages/ui/src/components"],
+      "@next-inflearn/ui/*": ["../../packages/ui/src/*"],
+      "@next-inflearn/supabase": ["../../packages/supabase"]
     },
     "plugins": [
       {

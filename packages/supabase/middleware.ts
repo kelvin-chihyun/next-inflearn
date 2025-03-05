@@ -63,7 +63,7 @@ export const applyMiddlewareSupabaseClient = async (request: NextRequest) => {
   return response;
 };
 
-export async function middleware(request) {
+export async function middleware(request: NextRequest) {
   return await applyMiddlewareSupabaseClient(request);
 }
 
