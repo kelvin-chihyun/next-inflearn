@@ -47,14 +47,17 @@ export async function createTodo(todo: TodoRowInsert) {
 
 export async function updateTodo(todo: TodoRowUpdate) {
   const supabase = await createServerSupabaseClient();
-  console.log(todo);
+
+  // completed가 true로 변경될 때 completed_at 설정
+  const updateData = {
+    ...todo,
+    completed_at: todo.completed ? new Date().toISOString() : null,
+    updated_at: new Date().toISOString(),
+  };
 
   const { data, error } = await supabase
     .from("todo")
-    .update({
-      ...todo,
-      updated_at: new Date().toISOString(),
-    })
+    .update(updateData)
     .eq("id", todo.id as number);
 
   if (error) {
