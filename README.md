@@ -45,16 +45,6 @@ This is a monorepo project containing multiple independent services built with T
 pnpm install
 ```
 
-2. 환경 변수 설정:
-
-```bash
-# 각 서비스의 환경 변수 파일 복사
-cp apps/todo/.env.example apps/todo/.env
-cp apps/netflix/.env.example apps/netflix/.env
-cp apps/dropbox/.env.example apps/dropbox/.env
-cp apps/instagram/.env.example apps/instagram/.env
-```
-
 ## 🚀 서비스 실행 방법
 
 ### Supabase **설정**
@@ -67,7 +57,8 @@ cp apps/instagram/.env.example apps/instagram/.env
 2. 환경 변수 설정:
 
 ```bash
-# packages/supabase/.env 파일 생성
+# 루트/.env (여기서 루트는 turbo.json 파일이 있는 경로)
+# apps/(각 프로젝트)/.env.local
 NEXT_PUBLIC_SUPABASE_URL=your-project-url
 NEXT_PUBLIC_SUPABASE_ANON_KEY=your-anon-key
 NEXT_SUPABASE_SERVICE_ROLE=your-service-role
