@@ -82,46 +82,61 @@ export default function Todo({ todo }: { todo: TodoRow }) {
         </p>
       )}
 
-      <div className="flex items-center gap-3">
-        {/* 완료 시간 표시 */}
-        {completed && todo.completed_at && (
-          <span className="text-sm text-gray-500 font-medium">
-            {formatDate(todo.completed_at)}
-          </span>
-        )}
+      {/* 날짜 정보와 버튼을 감싸는 컨테이너 */}
+      <div className="flex items-center gap-4">
+        {/* 날짜 정보 컨테이너 */}
+        <div
+          className={`flex flex-col text-sm text-gray-500 ${
+            completed
+              ? "items-end justify-between"
+              : "items-center justify-center"
+          }`}
+        >
+          <p className="whitespace-nowrap">
+            Created: {formatDate(todo.created_at)}
+          </p>
+          {completed && todo.completed_at && (
+            <p className="whitespace-nowrap text-blue-500">
+              Completed: {formatDate(todo.completed_at)}
+            </p>
+          )}
+        </div>
 
-        {isEditing ? (
+        {/* 버튼 그룹 */}
+        <div className="flex items-center gap-2">
+          {isEditing ? (
+            <IconButton
+              variant="text"
+              className="rounded-full h-10 w-10 !p-0 hover:bg-blue-50"
+              onClick={() => updateTodoMutation.mutate()}
+            >
+              {updateTodoMutation.isPending ? (
+                <Spinner className="h-5 w-5" />
+              ) : (
+                <i className="fas fa-check text-blue-500 text-lg" />
+              )}
+            </IconButton>
+          ) : (
+            <IconButton
+              variant="text"
+              className="rounded-full h-10 w-10 !p-0 hover:bg-blue-50"
+              onClick={() => setIsEditing(true)}
+            >
+              <i className="fas fa-pen text-gray-600 text-lg" />
+            </IconButton>
+          )}
           <IconButton
             variant="text"
-            className="rounded-full h-10 w-10 !p-0 hover:bg-blue-50"
-            onClick={() => updateTodoMutation.mutate()}
+            className="rounded-full h-10 w-10 !p-0 hover:bg-red-50"
+            onClick={() => deleteTodoMutation.mutate()}
           >
-            {updateTodoMutation.isPending ? (
+            {deleteTodoMutation.isPending ? (
               <Spinner className="h-5 w-5" />
             ) : (
-              <i className="fas fa-check text-blue-500 text-lg" />
+              <i className="fas fa-trash text-red-500 text-lg" />
             )}
           </IconButton>
-        ) : (
-          <IconButton
-            variant="text"
-            className="rounded-full h-10 w-10 !p-0 hover:bg-blue-50"
-            onClick={() => setIsEditing(true)}
-          >
-            <i className="fas fa-pen text-gray-600 text-lg" />
-          </IconButton>
-        )}
-        <IconButton
-          variant="text"
-          className="rounded-full h-10 w-10 !p-0 hover:bg-red-50"
-          onClick={() => deleteTodoMutation.mutate()}
-        >
-          {deleteTodoMutation.isPending ? (
-            <Spinner className="h-5 w-5" />
-          ) : (
-            <i className="fas fa-trash text-red-500 text-lg" />
-          )}
-        </IconButton>
+        </div>
       </div>
     </div>
   );
