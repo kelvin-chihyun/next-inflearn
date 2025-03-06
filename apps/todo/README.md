@@ -1,6 +1,7 @@
 # Todo List
 
 Next.js, React Query, Supabase를 활용한 Todo List WebApp입니다.
+![결과물](./public/result.gif)
 
 ## 주요 기능
 

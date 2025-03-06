@@ -34,7 +34,7 @@ export default function UI() {
           <Input
             label="Search TODO"
             placeholder="Search TODO"
-            className="border-blue-100 rounded-full focus:border-blue-500 focus:border-2 px-14 h-full text-lg"
+            className="border border-blue-100  rounded-full focus:border-blue-500 focus:border-2 px-14 h-full text-lg"
             labelProps={{
               className: "hidden",
             }}
