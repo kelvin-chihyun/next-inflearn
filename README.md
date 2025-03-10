@@ -9,8 +9,8 @@ This is a monorepo project containing multiple independent services built with T
 ```bash
 ├── apps/
 │   ├── todo/        # Todo 애플리케이션 (포트: 3000)
-│   ├── netflix/     # Netflix 클론 (포트: 3001)
-│   ├── dropbox/     # Dropbox 클론 (포트: 3002)
+│   ├── dropbox/     # Dropbox 클론 (포트: 3001)
+│   ├── netflix/     # Netflix 클론 (포트: 3002)
 │   └── instagram/   # Instagram 클론 (포트: 3003)
 ├── packages/
 │   ├── ui/          # 공유 UI 컴포넌트
@@ -63,13 +63,14 @@ NEXT_PUBLIC_SUPABASE_URL=your-project-url
 NEXT_PUBLIC_SUPABASE_ANON_KEY=your-anon-key
 NEXT_SUPABASE_SERVICE_ROLE=your-service-role
 NEXT_SUPABASE_DB_PASSWORD=your-password
+NEXT_PUBLIC_STORAGE_BUCKET=your-bucket
 ```
 
 3. 데이터베이스 스키마:
 
    - Todo 서비스: `todo` 테이블
+   - Dropbox 클론: `minibox`스토리지
    - Netflix 클론: `TBD`
-   - Dropbox 클론: `TBD`
    - Instagram 클론: `TBD`
 
 4. 타입 생성:
@@ -92,11 +93,11 @@ pnpm dev
 # Todo 애플리케이션
 pnpm --filter todo dev  # http://localhost:3000
 
-# Netflix 클론
-pnpm --filter netflix dev  # http://localhost:3001
-
 # Dropbox 클론
-pnpm --filter dropbox dev  # http://localhost:3002
+pnpm --filter dropbox dev  # http://localhost:3001
+
+# Netflix 클론
+pnpm --filter netflix dev  # http://localhost:3002
 
 # Instagram 클론
 pnpm --filter instagram dev  # http://localhost:3003
@@ -136,8 +137,8 @@ import { Button } from "@workspace/ui/components/button";
 ## 🌐 서비스 URL
 
 - Todo 애플리케이션: http://localhost:3000
-- Netflix 클론: http://localhost:3001
-- Dropbox 클론: http://localhost:3002
+- Dropbox 클론: http://localhost:3001
+- Netflix 클론: http://localhost:3002
 - Instagram 클론: http://localhost:3003
 
 ## 📝 개발 가이드라인
