@@ -19,7 +19,8 @@
     "next.config.mjs",
     "**/*.ts",
     "**/*.tsx",
-    ".next/types/**/*.ts"
+    ".next/types/**/*.ts",
+    "../dropbox/app/layout.tsx"
   ],
   "exclude": ["node_modules"]
 }

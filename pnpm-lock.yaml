@@ -24,6 +24,58 @@ importers:
         specifier: 5.5.4
         version: 5.5.4
 
+  apps/dropbox:
+    dependencies:
+      '@next-inflearn/supabase':
+        specifier: workspace:*
+        version: link:../../packages/supabase
+      '@next-inflearn/ui':
+        specifier: workspace:*
+        version: link:../../packages/ui
+      '@tanstack/react-query':
+        specifier: ^5.49.2
+        version: 5.67.1(react@18.3.1)
+      lucide-react:
+        specifier: 0.456.0
+        version: 0.456.0(react@18.3.1)
+      next:
+        specifier: 14.2.4
+        version: 14.2.4(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      next-themes:
+        specifier: ^0.4.3
+        version: 0.4.4(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      react:
+        specifier: ^18
+        version: 18.3.1
+      react-dom:
+        specifier: ^18
+        version: 18.3.1(react@18.3.1)
+    devDependencies:
+      '@next-inflearn/eslint-config':
+        specifier: workspace:^
+        version: link:../../packages/eslint-config
+      '@next-inflearn/typescript-config':
+        specifier: workspace:*
+        version: link:../../packages/typescript-config
+      '@types/node':
+        specifier: ^20
+        version: 20.17.10
+      '@types/react':
+        specifier: 18.2.39
+        version: 18.2.39
+      '@types/react-dom':
+        specifier: ^18
+        version: 18.3.1
+      postcss:
+        specifier: ^8
+        version: 8.4.49
+      tailwindcss:
+        specifier: ^3.4.1
+        version: 3.4.16(ts-node@10.9.2(@types/node@20.17.10)(typescript@5.7.2))
+      typescript:
+        specifier: ^5
+        version: 5.7.2
+
   apps/todo:
     dependencies:
       '@next-inflearn/supabase':
@@ -3437,7 +3489,7 @@ snapshots:
 
   '@types/react-dom@18.3.1':
     dependencies:
-      '@types/react': 18.3.0
+      '@types/react': 18.2.39
 
   '@types/react-transition-group@4.4.12(@types/react@18.2.39)':
     dependencies:

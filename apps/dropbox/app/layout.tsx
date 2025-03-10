@@ -6,7 +6,7 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Next DropBox",
-  description: "Next DropBox",
+  description: "A minimalistic Dropbox clone",
 };
 
 export default function RootLayout({
