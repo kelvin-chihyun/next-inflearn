@@ -1,4 +1,4 @@
-import Ui from "./UI";
+import Ui from "./Ui";
 
 export const metadata = {
   title: "Minibox",
