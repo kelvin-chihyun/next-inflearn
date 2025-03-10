@@ -16,8 +16,8 @@
   "devDependencies": {
     "@next-inflearn/eslint-config": "workspace:*",
     "@next-inflearn/typescript-config": "workspace:*",
-    "prettier": "^3.2.5",
-    "turbo": "^2.3.0",
+    "prettier": "3.2.5",
+    "turbo": "2.3.0",
     "typescript": "5.5.4"
   },
   "packageManager": "pnpm@9.12.3",
@@ -25,6 +25,6 @@
     "node": ">=20"
   },
   "dependencies": {
-    "@supabase/storage-js": "^2.7.1"
+    "@supabase/storage-js": "2.7.1"
   }
 }

@@ -4,45 +4,51 @@ packages:
 
 catalog:
   # React Core
-  "react@18": "^18"
-  "react-dom@18": "^18"
-  "@types/react@18": "18.2.39"
-  "@types/react-dom@18": "^18"
+  "react": "18.2.0"
+  "react-dom": "18.2.0"
+  "@types/react": "18.2.39"
+  "@types/react-dom": "18.2.19"
 
   # Next.js
-  "next@14": "14.2.4"
+  "next": "14.2.4"
 
   # Data Fetching
-  "@tanstack/react-query@5": "^5.49.2"
+  "@tanstack/react-query": "5.49.2"
 
   # Styling
-  "tailwindcss@3": "^3.4.1"
-  "postcss@8": "^8"
-  "@tailwindcss/typography@0": "^0.5.13"
-  "@types/tailwindcss@3": "^3.1.0"
-  "autoprefixer@10": "^10.4.20"
-  "tailwind-merge@2": "^2.5.4"
-  "tailwindcss-animate@1": "^1.0.7"
+  "tailwindcss": "3.4.1"
+  "postcss": "8.4.35"
+  "@tailwindcss/typography": "0.5.13"
+  "@types/tailwindcss": "3.1.0"
+  "autoprefixer": "10.4.20"
+  "tailwind-merge": "2.5.4"
+  "tailwindcss-animate": "1.0.7"
 
   # UI Components
-  "@emotion/react@11": "^11.11.4"
-  "@emotion/styled@11": "^11.11.5"
-  "@material-tailwind/react@2": "^2.1.9"
-  "@mui/icons-material@5": "^5.15.21"
-  "@radix-ui/react-slot@1": "^1.1.1"
-  "class-variance-authority@0": "^0.7.0"
-  "clsx@2": "^2.1.1"
-  "lucide-react@0": "0.456.0"
-  "next-themes@0": "^0.4.3"
+  "@emotion/react": "11.11.4"
+  "@emotion/styled": "11.11.5"
+  "@material-tailwind/react": "2.1.9"
+  "@mui/icons-material": "5.15.21"
+  "@radix-ui/react-slot": "1.1.1"
+  "class-variance-authority": "0.7.0"
+  "clsx": "2.1.1"
+  "lucide-react": "0.456.0"
+  "next-themes": "0.4.3"
 
   # Database
-  "@supabase/ssr@0": "^0.4.0"
-  "@supabase/supabase-js@2": "^2.49.1"
+  "@supabase/ssr": "0.4.0"
+  "@supabase/supabase-js": "2.39.7"
+  "@supabase/storage-js": "2.7.1"
 
   # TypeScript & Node
-  "typescript@5": "^5"
-  "@types/node@20": "^20"
+  "typescript": "5.5.4"
+  "@types/node": "20.11.24"
+
+  # Development Tools
+  "turbo": "2.3.0"
+  "prettier": "3.2.5"
+  "@turbo/gen": "2.2.3"
 
   # Utils
-  "zod@3": "^3.23.8"
-  "@turbo/gen@2": "^2.2.3"
+  "zod": "3.23.8"
+  "react-dropzone": "14.2.3"

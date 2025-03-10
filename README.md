@@ -122,8 +122,8 @@ pnpm --filter [서비스-이름] build
 shadcn/ui 컴포넌트 추가:
 
 ```bash
-# 공유 UI 패키지에 추가
-pnpm dlx shadcn@latest add [컴포넌트-이름] -c packages/ui
+# UI 패키지에 컴포넌트 추가
+pnpm --filter @next-inflearn/ui dlx shadcn@latest add [컴포넌트-이름]
 ```
 
 ## 📚 공유 컴포넌트 사용법
