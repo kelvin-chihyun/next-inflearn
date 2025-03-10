@@ -18,17 +18,17 @@
     "generate-types": "npx supabase gen types typescript --project-id lrqahloojpiupfwtcfpf --schema public > types_db.ts"
   },
   "dependencies": {
-    "@supabase/ssr": "^0.4.0",
-    "@supabase/supabase-js": "^2.49.1",
-    "@tanstack/react-query": "^5.49.2",
-    "next": "14.2.4",
-    "react": "^18",
-    "react-dom": "^18"
+    "@supabase/ssr": "catalog:@supabase/ssr@0",
+    "@supabase/supabase-js": "catalog:@supabase/supabase-js@2",
+    "@tanstack/react-query": "catalog:@tanstack/react-query@5",
+    "next": "catalog:next@14",
+    "react": "catalog:react@18",
+    "react-dom": "catalog:react-dom@18"
   },
   "devDependencies": {
-    "@types/node": "^20",
-    "@types/react": "^18",
-    "@types/react-dom": "^18",
-    "typescript": "^5"
+    "@types/node": "catalog:@types/node@20",
+    "@types/react": "catalog:@types/react@18",
+    "@types/react-dom": "catalog:@types/react-dom@18",
+    "typescript": "catalog:typescript@5"
   }
 }
