@@ -12,7 +12,7 @@
   "iconLibrary": "lucide",
   "aliases": {
     "components": "@next-inflearn/ui/components",
-    "utils": "@next-inflearn/ui/lib/utils",
+    "utils": "@next-inflearn/ui/lib",
     "hooks": "@next-inflearn/ui/hooks",
     "lib": "@next-inflearn/ui/lib",
     "ui": "@next-inflearn/ui/components"

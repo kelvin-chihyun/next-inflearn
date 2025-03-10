@@ -1,3 +1,4 @@
 {
-  "extends": "@next-inflearn/typescript-config/base.json"
+  "extends": "@next-inflearn/typescript-config/base.json",
+  "exclude": ["node_modules"]
 }

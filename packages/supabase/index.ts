@@ -19,3 +19,6 @@ export {
 } from "./types_db";
 
 export type { PostgrestError } from "@supabase/supabase-js";
+export type { StorageError } from "@supabase/storage-js";
+export type { FileObject } from "@supabase/storage-js";
+export { getImageUrl } from "./storage";

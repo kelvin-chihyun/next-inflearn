@@ -3,7 +3,7 @@
 import { Checkbox, IconButton, Spinner } from "@next-inflearn/ui";
 import { useMutation } from "@tanstack/react-query";
 import { deleteTodo, updateTodo, TodoRow } from "actions/todo-actions";
-import { queryClient } from "config/ReactQueryClientProvider";
+import { queryClient } from "@next-inflearn/ui/lib";
 import { useState } from "react";
 
 // 날짜 포맷팅 함수
