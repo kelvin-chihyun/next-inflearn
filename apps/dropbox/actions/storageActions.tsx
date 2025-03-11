@@ -60,3 +60,25 @@ export async function searchFiles(
     return null;
   }
 }
+
+export async function deleteFile(
+  fileName: string
+): Promise<FileObject[] | null> {
+  try {
+    const supabase = await createServerSupabaseClient();
+
+    const { data, error } = await supabase.storage
+      .from(process.env.NEXT_PUBLIC_STORAGE_BUCKET as string)
+      .remove([fileName]);
+
+    if (error) {
+      handleError(error);
+      return null;
+    }
+
+    return data;
+  } catch (error: unknown) {
+    handleError(error as CustomError);
+    return null;
+  }
+}
