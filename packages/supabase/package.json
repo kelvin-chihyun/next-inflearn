@@ -21,6 +21,7 @@
     "@supabase/ssr": "0.4.0",
     "@supabase/supabase-js": "2.39.7",
     "@tanstack/react-query": "5.49.2",
+    "es-hangul": "^2.3.2",
     "next": "14.2.3",
     "react": "^18",
     "react-dom": "^18",
