@@ -2,44 +2,61 @@
 
 import {
   createServerSupabaseClient,
-  PostgrestError,
-  StorageError,
-  FileObject,
+  CustomError,
+  handleError,
+  type FileObject,
+  FileNameConverter,
 } from "@next-inflearn/supabase";
 
-function handleError(error: PostgrestError | StorageError | null) {
-  if (error) {
-    console.error(error);
-    throw new Error(error.message);
-  }
-}
-
 export async function uploadFile(formData: FormData) {
-  const supabase = await createServerSupabaseClient();
-  const file = formData.get("file") as File;
+  try {
+    const supabase = await createServerSupabaseClient();
+    const file = formData.get("file") as File;
 
-  const { data, error } = await supabase.storage
-    .from(process.env.NEXT_PUBLIC_STORAGE_BUCKET as string)
-    .upload(file.name, file, { upsert: true });
+    if (!file) {
+      throw new Error("파일을 선택해주세요.");
+    }
 
-  handleError(error);
+    // 안전한 파일명으로 변환
+    const safeFileName = FileNameConverter.encode(file.name);
 
-  return data;
+    const { data, error } = await supabase.storage
+      .from(process.env.NEXT_PUBLIC_STORAGE_BUCKET as string)
+      .upload(safeFileName, file, { upsert: true });
+
+    if (error) {
+      handleError(error);
+      return null;
+    }
+
+    return data;
+  } catch (error: unknown) {
+    handleError(error as CustomError);
+    return null;
+  }
 }
 
 export async function searchFiles(
   search: string = ""
 ): Promise<FileObject[] | null> {
-  const supabase = await createServerSupabaseClient();
+  try {
+    const supabase = await createServerSupabaseClient();
 
-  const { data, error } = await supabase.storage
-    .from(process.env.NEXT_PUBLIC_STORAGE_BUCKET as string)
-    .list(undefined, {
-      search,
-      sortBy: { column: "name", order: "asc" },
-    });
+    const { data, error } = await supabase.storage
+      .from(process.env.NEXT_PUBLIC_STORAGE_BUCKET as string)
+      .list(undefined, {
+        search,
+        sortBy: { column: "name", order: "asc" },
+      });
 
-  handleError(error);
+    if (error) {
+      handleError(error);
+      return null;
+    }
 
-  return data;
+    return data;
+  } catch (error: unknown) {
+    handleError(error as CustomError);
+    return null;
+  }
 }

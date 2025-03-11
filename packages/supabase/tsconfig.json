@@ -25,13 +25,7 @@
       "@/*": ["app/*"]
     }
   },
-  "include": [
-    "next-env.d.ts",
-    "client.ts",
-    "middleware.ts",
-    "server.ts",
-    "types.ts"
-  ],
+  "include": ["next-env.d.ts", "client.ts", "middleware.ts", "server.ts"],
   "exclude": ["node_modules"],
   "ts-node": {
     "compilerOptions": {
