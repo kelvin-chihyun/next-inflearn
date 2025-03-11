@@ -52,7 +52,7 @@ export default function DropboxImage({ image }: { image: FileObject }) {
           </span>
           <IconButton
             onClick={() => deleteFileMutation.mutate(image.name)}
-            className="bg-white/80 hover:bg-red-50 text-slate-600 hover:text-red-600 shadow-sm w-6 h-6 p-0"
+            className="bg-white/80 hover:bg-red-50 text-slate-600 hover:text-red-600 shadow-sm w-6 h-6 p-0 flex items-center justify-center"
           >
             {deleteFileMutation.isPending ? (
               <Spinner className="w-3 h-3" />
