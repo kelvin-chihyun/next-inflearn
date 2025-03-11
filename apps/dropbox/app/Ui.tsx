@@ -5,7 +5,7 @@ import FileDragDropZone from "components/FileDragDropZone";
 import Logo from "components/Logo";
 import SearchComponent from "components/Search";
 import { useState } from "react";
-
+import { SonnerToaster } from "@next-inflearn/ui";
 export default function Ui() {
   const [searchInput, setSearchInput] = useState<string>("");
 
@@ -25,6 +25,9 @@ export default function Ui() {
 
       {/* Dropbox Image List */}
       <DropBoxImageList searchInput={searchInput} />
+
+      {/* Toaster */}
+      <SonnerToaster />
     </main>
   );
 }
