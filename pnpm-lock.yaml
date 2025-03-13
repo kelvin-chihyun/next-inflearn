@@ -39,9 +39,6 @@ importers:
       '@tanstack/react-query':
         specifier: 5.49.2
         version: 5.49.2(react@18.2.0)
-      es-hangul:
-        specifier: ^2.3.2
-        version: 2.3.2
       lucide-react:
         specifier: 0.456.0
         version: 0.456.0(react@18.2.0)
