@@ -7,6 +7,7 @@ import { queryClient } from "@next-inflearn/ui/lib";
 import { useCallback } from "react";
 import { toast } from "sonner";
 import { useDropzone } from "react-dropzone";
+import { FileNameConverter } from "@next-inflearn/supabase";
 
 export default function FileDragDropZone() {
   const uploadImageMutation = useMutation({
@@ -30,8 +31,19 @@ export default function FileDragDropZone() {
 
   const onDrop = useCallback(async (acceptedFiles: File[]) => {
     if (acceptedFiles.length > 0) {
+      const originalFile = acceptedFiles[0];
+
+      // 클라이언트에서 파일명 변환
+      const safeFileName = FileNameConverter.encode(originalFile?.name ?? "");
+      console.log("Safe file name (client):", safeFileName);
+
+      // 새로운 File 객체 생성
+      const safeFile = new File([originalFile as Blob], safeFileName, {
+        type: originalFile?.type ?? "",
+      });
+
       const formData = new FormData();
-      formData.append("file", acceptedFiles[0] as File); // 첫 번째 파일만 사용
+      formData.append("file", safeFile);
       await uploadImageMutation.mutateAsync(formData);
     }
   }, []);

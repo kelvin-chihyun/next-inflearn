@@ -17,12 +17,9 @@ export async function uploadFile(formData: FormData) {
       throw new Error("파일을 선택해주세요.");
     }
 
-    // 안전한 파일명으로 변환
-    const safeFileName = FileNameConverter.encode(file.name);
-
     const { data, error } = await supabase.storage
       .from(process.env.NEXT_PUBLIC_STORAGE_BUCKET as string)
-      .upload(safeFileName, file, { upsert: true });
+      .upload(file.name, file, { upsert: true });
 
     if (error) {
       handleError(error);
