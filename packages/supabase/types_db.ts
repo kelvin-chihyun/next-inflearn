@@ -9,6 +9,36 @@ export type Json =
 export type Database = {
   public: {
     Tables: {
+      movie: {
+        Row: {
+          id: number
+          image_url: string
+          overview: string
+          popularity: number
+          release_date: string
+          title: string
+          vote_average: number
+        }
+        Insert: {
+          id?: number
+          image_url: string
+          overview: string
+          popularity: number
+          release_date: string
+          title: string
+          vote_average: number
+        }
+        Update: {
+          id?: number
+          image_url?: string
+          overview?: string
+          popularity?: number
+          release_date?: string
+          title?: string
+          vote_average?: number
+        }
+        Relationships: []
+      }
       todo: {
         Row: {
           completed: boolean
