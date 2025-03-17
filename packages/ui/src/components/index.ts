@@ -17,3 +17,5 @@ export {
   DialogTitle,
   DialogDescription,
 } from "./dialog";
+export { PersonStanding } from "lucide-react";
+export { HoverCard, HoverCardTrigger, HoverCardContent } from "./hover-card";

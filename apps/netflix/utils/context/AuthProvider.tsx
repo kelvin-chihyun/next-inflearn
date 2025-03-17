@@ -5,11 +5,7 @@ import { createBrowserSupabaseClient } from "@next-inflearn/supabase";
 import { useSetAtom } from "jotai";
 import { userAtom } from "@/utils/jotai/atoms";
 
-export default function AuthProvider({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export function AuthProvider({ children }: { children: React.ReactNode }) {
   const setUser = useSetAtom(userAtom);
   const supabase = createBrowserSupabaseClient();
 

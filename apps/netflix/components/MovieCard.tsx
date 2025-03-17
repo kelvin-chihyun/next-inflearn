@@ -92,7 +92,7 @@ export default function MovieCard({ movie }: { movie: Movie }) {
             ${isLoading ? "cursor-not-allowed" : "cursor-pointer"}`}
         >
           {isFavorite ? (
-            <Star className="w-5 h-5 text-yellow-400" />
+            <Star className="w-5 h-5 text-yellow-400 fill-yellow-400" />
           ) : (
             <StarOff className="w-5 h-5 text-white" />
           )}
