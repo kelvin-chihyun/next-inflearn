@@ -3,6 +3,17 @@
 import Link from "next/link";
 import Image from "next/image";
 import { Movie } from "@/actions/movieActions";
+import { ShadSkeleton } from "@next-inflearn/ui";
+
+// MovieCardSkeleton 컴포넌트 추가
+export function MovieCardSkeleton() {
+  return (
+    <div className="col-span-1 relative">
+      <ShadSkeleton className="w-full aspect-[2/3]" />{" "}
+      {/* 영화 포스터 비율 2:3 */}
+    </div>
+  );
+}
 
 export default function MovieCard({ movie }: { movie: Movie }) {
   return (
