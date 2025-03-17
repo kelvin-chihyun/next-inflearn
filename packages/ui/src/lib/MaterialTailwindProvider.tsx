@@ -1,3 +1,3 @@
 "use client";
 
-export { ThemeProvider } from "@next-inflearn/ui";
+export { ThemeProvider } from "@material-tailwind/react";

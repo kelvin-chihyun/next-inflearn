@@ -23,3 +23,5 @@ export type { StorageError } from "@supabase/storage-js";
 export type { FileObject } from "@supabase/storage-js";
 export { getImageUrl, FileNameConverter, formatDate } from "./storage";
 export { handleError, type CustomError } from "./error";
+
+export type { User } from "@supabase/supabase-js";

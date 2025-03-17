@@ -2,7 +2,6 @@
 
 import { useEffect } from "react";
 import MovieCard, { MovieCardSkeleton } from "./MovieCard";
-import { useInfiniteQuery } from "@tanstack/react-query";
 import { searchState } from "@/utils/jotai/atoms";
 import { useAtomValue } from "jotai";
 import {
@@ -12,6 +11,7 @@ import {
 } from "@/actions/movieActions";
 import { useInView } from "react-intersection-observer";
 import { Spinner } from "@next-inflearn/ui";
+import { useInfiniteQuery } from "@next-inflearn/ui/lib";
 
 const PAGE_SIZE = 12;
 const INITIAL_PAGE = 1;
@@ -64,13 +64,12 @@ export default function MovieCardList() {
     // 영화 카드 그리드 레이아웃
     <div className="grid gap-1 md:grid-cols-4 grid-cols-3 w-full h-full">
       {/* 초기 로딩 상태 */}
-      {isFetching &&
-        !data &&
-        // 초기 페이지 크기만큼 스켈레톤 표시
-        [...Array(PAGE_SIZE)].map((_, i) => <MovieCardSkeleton key={i} />)}
+      {isFetching && !data && (
+        <div className="col-span-full flex justify-center">
+          <Spinner />
+        </div>
+      )}
 
-      {/* 로딩 스피너 표시 */}
-      {(isFetching || isFetchingNextPage) && <Spinner />}
       {/* 영화 카드 목록 렌더링 */}
       {data?.pages.map((page) =>
         page.data.map((movie: Movie) => (
@@ -79,14 +78,14 @@ export default function MovieCardList() {
       )}
 
       {/* 다음 페이지 로딩 상태 */}
-      {isFetchingNextPage &&
-        // 추가 페이지 로딩 시 스켈레톤 표시
-        [...Array(PAGE_SIZE)].map((_, i) => (
-          <MovieCardSkeleton key={`next-${i}`} />
-        ))}
+      {isFetchingNextPage && (
+        <div className="col-span-full flex justify-center">
+          <Spinner />
+        </div>
+      )}
 
       {/* Intersection Observer를 위한 감지 요소 */}
-      <div ref={ref} />
+      <div ref={ref} className="col-span-full h-1" />
     </div>
   );
 }
