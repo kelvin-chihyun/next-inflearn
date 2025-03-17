@@ -56,7 +56,7 @@ export async function searchMovies({
   const { data, count, error } = await supabase
     .from("movie")
     .select("*", { count: "exact" })
-    .like("title", `%${search}%`)
+    .ilike("title", `%${search}%`)
     .range((page - 1) * pageSize, page * pageSize - 1);
 
   const hasNextPage = count ? count > page * pageSize : false;
