@@ -1,3 +1,7 @@
+# Netflix
+
+### 추가 쿼리
+
 -- favorites 테이블 생성
 create table favorites (
 -- 자동 증가하는 고유 ID (primary key)
@@ -19,3 +23,33 @@ unique(user_id, movie_id)
 -- 성능 최적화를 위한 인덱스 생성
 create index favorites_user_id_idx on favorites(user_id);
 create index favorites_movie_id_idx on favorites(movie_id);
+
+-- profiles 테이블 생성 (users 테이블은 Supabase Auth가 자동으로 관리)
+create table public.profiles (
+id uuid references auth.users on delete cascade not null primary key,
+email text not null,
+nickname text not null,
+created_at timestamp with time zone default timezone('utc'::text, now()) not null,
+updated_at timestamp with time zone default timezone('utc'::text, now()) not null
+);
+
+-- 프로필 생성을 위한 함수
+create function public.handle_new_user()
+returns trigger
+language plpgsql
+security definer set search_path = public
+as $$
+begin
+insert into public.profiles (id, email, nickname)
+values (new.id, new.email, new.raw_user_meta_data->>'nickname');
+return new;
+end;
+
+$$
+;
+
+-- 트리거 생성
+create trigger on_auth_user_created
+  after insert on auth.users
+  for each row execute procedure public.handle_new_user();
+$$
