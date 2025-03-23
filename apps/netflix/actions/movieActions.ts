@@ -64,8 +64,8 @@ export async function searchMovies({
     data: { user },
   } = await supabase.auth.getUser();
 
-  // 기본 쿼리 설정
-  let query = supabase
+  // 쿼리 설정
+  const query = supabase
     .from("movie")
     .select(
       user
@@ -81,9 +81,9 @@ export async function searchMovies({
     .ilike("title", `%${search}%`)
     .order("popularity", { ascending: false });
 
-  // 로그인한 경우에만 favorites 필터링 추가
+  // 로그인한 경우 현재 사용자의 즐겨찾기만 조회하도록 필터링
   if (user) {
-    query = query.eq("favorites.user_id", user.id);
+    query.eq("favorites.user_id", user.id);
   }
 
   const { data, count, error } = await query.range(
@@ -105,7 +105,7 @@ export async function searchMovies({
   // 반환된 데이터를 Movie 타입에 맞게 변환
   const moviesWithFavorites = (data || []).map((movie: any) => ({
     ...movie,
-    favorites: user ? movie.favorites?.[0] || null : null,
+    favorites: movie.favorites?.[0] || null, // 즐겨찾기 정보 포함
   }));
 
   return {

@@ -21,7 +21,7 @@ export default function LoginModal({
         <DialogHeader>
           <DialogTitle>로그인</DialogTitle>
         </DialogHeader>
-        <AuthForm />
+        <AuthForm onSuccess={onClose} />
       </DialogContent>
     </Dialog>
   );
