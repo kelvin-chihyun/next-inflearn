@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { Movie } from "@/actions/movieActions";
@@ -25,9 +25,20 @@ export function MovieCardSkeleton() {
 export default function MovieCard({ movie }: { movie: Movie }) {
   const user = useAtomValue(userAtom);
   const [isLoginModalOpen, setIsLoginModalOpen] = useAtom(loginModalAtom);
-  // null 체크를 통한 안전한 초기값 설정
+  // isFavorite 상태를 user 정보와 연동
   const [isFavorite, setIsFavorite] = useState(() => Boolean(movie?.favorites));
   const [isLoading, setIsLoading] = useState(false);
+
+  // user 상태가 변경될 때마다 즐겨찾기 상태 재설정
+  useEffect(() => {
+    // 로그아웃 상태면 즐겨찾기 해제
+    if (!user) {
+      setIsFavorite(false);
+      return;
+    }
+    // 로그인 상태면 서버의 즐겨찾기 상태 반영
+    setIsFavorite(Boolean(movie?.favorites));
+  }, [user, movie?.favorites]);
 
   // 이미지 URL이 없는 경우를 대비한 fallback 처리
   const imageUrl = movie?.image_url || "https://placehold.co/500";
