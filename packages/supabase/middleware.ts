@@ -57,8 +57,28 @@ export const applyMiddlewareSupabaseClient = async (request: NextRequest) => {
     }
   );
 
-  // refreshing the auth token
-  await supabase.auth.getUser();
+  // Get user session
+  const {
+    data: { session },
+  } = await supabase.auth.getSession();
+
+  // 인증이 필요한 경로 체크
+  const isAuthRequired = !request.nextUrl.pathname.startsWith("/auth");
+
+  if (!session?.user && request.nextUrl.pathname === "/") {
+    // 인증되지 않은 사용자가 /로 접근할 경우 /auth로 리다이렉트
+    return NextResponse.redirect(new URL("/auth", request.url));
+  }
+
+  if (!session?.user && isAuthRequired) {
+    // 인증되지 않은 사용자를 /auth로 리다이렉트
+    return NextResponse.redirect(new URL("/auth", request.url));
+  }
+
+  if (session?.user && request.nextUrl.pathname.startsWith("/auth")) {
+    // 이미 인증된 사용자를 메인 페이지로 리다이렉트
+    return NextResponse.redirect(new URL("/", request.url));
+  }
 
   return response;
 };
