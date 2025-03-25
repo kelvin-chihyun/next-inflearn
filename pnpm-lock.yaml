@@ -86,6 +86,70 @@ importers:
         specifier: 5.5.4
         version: 5.5.4
 
+  apps/instagram:
+    dependencies:
+      '@next-inflearn/supabase':
+        specifier: workspace:*
+        version: link:../../packages/supabase
+      '@next-inflearn/ui':
+        specifier: workspace:*
+        version: link:../../packages/ui
+      '@tanstack/react-query':
+        specifier: 5.49.2
+        version: 5.49.2(react@18.2.0)
+      jotai:
+        specifier: ^2.12.2
+        version: 2.12.2(@types/react@18.2.39)(react@18.2.0)
+      lucide-react:
+        specifier: 0.456.0
+        version: 0.456.0(react@18.2.0)
+      next:
+        specifier: 14.2.3
+        version: 14.2.3(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
+      next-themes:
+        specifier: 0.4.3
+        version: 0.4.3(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
+      react:
+        specifier: ^18
+        version: 18.2.0
+      react-dom:
+        specifier: ^18
+        version: 18.2.0(react@18.2.0)
+      react-dropzone:
+        specifier: 14.2.3
+        version: 14.2.3(react@18.2.0)
+      react-intersection-observer:
+        specifier: ^9.10.3
+        version: 9.16.0(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
+      sonner:
+        specifier: ^2.0.1
+        version: 2.0.1(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
+    devDependencies:
+      '@next-inflearn/eslint-config':
+        specifier: workspace:*
+        version: link:../../packages/eslint-config
+      '@next-inflearn/typescript-config':
+        specifier: workspace:*
+        version: link:../../packages/typescript-config
+      '@types/node':
+        specifier: ^20
+        version: 20.11.24
+      '@types/react':
+        specifier: ^18
+        version: 18.2.39
+      '@types/react-dom':
+        specifier: ^18
+        version: 18.2.19
+      postcss:
+        specifier: 8.4.35
+        version: 8.4.35
+      tailwindcss:
+        specifier: 3.4.1
+        version: 3.4.1(ts-node@10.9.2(@types/node@20.11.24)(typescript@5.5.4))
+      typescript:
+        specifier: 5.5.4
+        version: 5.5.4
+
   apps/netflix:
     dependencies:
       '@next-inflearn/supabase':
