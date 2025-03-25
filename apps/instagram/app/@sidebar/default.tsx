@@ -9,7 +9,7 @@ export default function Sidebar() {
   return (
     <aside className="w-fit h-screen p-6 border-r border-gray-300 flex flex-col justify-between">
       {/* Home버튼 + People Page ~ Chat Page */}
-      <div className="flex flex-col gap-4">
+      <div className="flex flex-col gap-10">
         <Link href="/">
           <Home className="text-2xl mb-10" />
         </Link>
