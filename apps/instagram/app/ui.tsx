@@ -14,7 +14,7 @@ export default async function UI() {
   } = await supabase.auth.getSession();
   return (
     <>
-      <main className="w-full h-screen flex flex-col gap-2 items-center justify-center">
+      <main className="w-full h-screen flex flex-1 flex-col gap-2 items-center justify-center">
         <h1 className="font-bold text-xl">
           Welcome {session?.user?.email?.split("@")?.[0]}!
         </h1>

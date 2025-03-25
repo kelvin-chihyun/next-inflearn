@@ -3,7 +3,7 @@
 import { useEffect } from "react";
 import { createBrowserSupabaseClient } from "@next-inflearn/supabase";
 import { useSetAtom } from "jotai";
-import { userAtom } from "@/utils/jotai/atoms";
+import { userAtom } from "../jotai/atoms";
 import { useRouter } from "next/navigation";
 
 export function AuthProvider({

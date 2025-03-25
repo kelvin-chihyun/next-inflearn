@@ -7,7 +7,7 @@ import {
   ThemeProvider,
 } from "@next-inflearn/ui/lib";
 import { Provider as JotaiProvider } from "jotai";
-import { AuthProvider } from "@/utils/context/AuthProvider";
+import { AuthProvider } from "@/shared/utils/context/AuthProvider";
 import { SonnerToaster } from "@next-inflearn/ui";
 import { createServerSupabaseClient } from "@next-inflearn/supabase";
 import Auth from "./auth/page";
@@ -49,8 +49,14 @@ export default async function RootLayout({
           <JotaiProvider>
             <ThemeProvider>
               <AuthProvider accessToken={session?.access_token ?? ""}>
-                {session?.user ? sidebar : <Auth />}
-                {children}
+                {session?.user ? (
+                  <div className="flex flex-row w-full h-screen">
+                    {sidebar}
+                    {children}
+                  </div>
+                ) : (
+                  <Auth />
+                )}
                 <SonnerToaster />
               </AuthProvider>
             </ThemeProvider>
