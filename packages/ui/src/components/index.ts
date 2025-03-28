@@ -21,3 +21,11 @@ export {
 } from "./dialog";
 export { PersonStanding } from "lucide-react";
 export { HoverCard, HoverCardTrigger, HoverCardContent } from "./hover-card";
+export {
+  Card,
+  CardHeader,
+  CardFooter,
+  CardTitle,
+  CardDescription,
+  CardContent,
+} from "./card";

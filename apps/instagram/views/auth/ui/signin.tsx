@@ -3,6 +3,7 @@ import { createBrowserSupabaseClient } from "@next-inflearn/supabase";
 import { ShadButton, ShadInput } from "@next-inflearn/ui";
 import { useMutation } from "@tanstack/react-query";
 import { useState } from "react";
+import Image from "next/image";
 
 export function SignIn({ setView }: { setView: (view: string) => void }) {
   const [email, setEmail] = useState("");
@@ -28,7 +29,13 @@ export function SignIn({ setView }: { setView: (view: string) => void }) {
   return (
     <div className="flex flex-col gap-4">
       <div className="pt-10 pb-6 px-10 w-full flex flex-col items-center justify-center max-w-lg border border-gray-400 bg-white gap-2">
-        <img src={"/images/inflearngram.png"} className="w-60 mb-6" />
+        <Image
+          src={"/images/inflearngram.png"}
+          className=" mb-6"
+          alt="inflearngram"
+          width={240}
+          height={180}
+        />
         <ShadInput
           value={email}
           onChange={(e) => setEmail(e.target.value)}
